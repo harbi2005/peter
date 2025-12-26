@@ -594,13 +594,42 @@ ul {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 50px;
+    padding-bottom: 10px; /* مساحة للظلال إذا لزم الأمر */
+}
+
+/* تحسينات للجوال: تمرير أفقي */
+@media (max-width: 768px) {
+    .menu-filters {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 20px 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+        -webkit-overflow-scrolling: touch; /* تمرير ناعم في iOS */
+        scrollbar-width: none; /* إخفاء شريط التمرير في Firefox */
+    }
+
+    .menu-filters::-webkit-scrollbar {
+        display: none; /* إخفاء شريط التمرير في Chrome/Safari */
+    }
+
+    .filter-btn {
+        flex: 0 0 auto; /* منع الأزرار من الانكماش */
+        white-space: nowrap;
+    }
+    
+    /* إضافة تدرج لوني على الجوانب لتوضيح وجود المزيد */
+    .menu-section {
+        position: relative;
+    }
 }
 
 .filter-btn {
     background-color: var(--glass-bg);
     border: 1px solid var(--glass-border);
     color: var(--white);
-    padding: 10px 25px;
+    padding: 12px 30px; /* زيادة المساحة لسهولة النقر */
     border-radius: 30px;
     cursor: pointer;
     font-family: var(--main-font);
@@ -608,6 +637,7 @@ ul {
     transition: 0.3s;
     font-size: 1rem;
     backdrop-filter: blur(5px);
+    white-space: nowrap;
 }
 
 .filter-btn:hover,
@@ -1266,13 +1296,33 @@ ul {
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    .hero-section {
+        padding: 120px 0 80px; /* تقليل الهوامش في الجوال */
+    }
+
     .hero-section h1 {
-        font-size: 2rem;
+        font-size: 2.5rem; /* تكبير الخط قليلاً ليكون أوضح */
+        line-height: 1.2;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 15px;
     }
     
+    .menu-grid {
+        gap: 20px; /* تقليل المسافة بين العناصر في الجوال */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* تصغير الحد الأدنى للعرض */
+    }
+
+    .item-image {
+        height: 200px; /* تقليل ارتفاع الصورة في الجوال */
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 30px;
     }
 
     .info-item {
